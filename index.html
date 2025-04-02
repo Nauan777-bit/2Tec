@@ -68,6 +68,27 @@
             text-align: center;
             padding: 20px;
         }
+
+        .frases-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .frase {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -94,7 +115,17 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Portal Estudantil - Todos os direitos reservados</p>
-        <p id="inspiracao"></p>
+        <div class="frases-container">
+            <div class="frase">
+                <p id="frase1"></p>
+            </div>
+            <div class="frase">
+                <p id="frase2"></p>
+            </div>
+            <div class="frase">
+                <p id="frase3"></p>
+            </div>
+        </div>
         <script>
             const frases = [
                 "O sucesso é a soma de pequenos esforços repetidos dia após dia. - Robert Collier",
@@ -102,7 +133,11 @@
                 "A única maneira de fazer um ótimo trabalho é amar o que você faz. - Steve Jobs",
                 "Sonhe grande, comece pequeno, mas, acima de tudo, comece. - Simon Sinek"
             ];
-            document.getElementById("inspiracao").textContent = frases[Math.floor(Math.random() * frases.length)];
+
+            // Preenche os quadrados com frases aleatórias
+            document.getElementById("frase1").textContent = frases[Math.floor(Math.random() * frases.length)];
+            document.getElementById("frase2").textContent = frases[Math.floor(Math.random() * frases.length)];
+            document.getElementById("frase3").textContent = frases[Math.floor(Math.random() * frases.length)];
         </script>
     </footer>
 
