@@ -89,6 +89,27 @@
             justify-content: center;
             text-align: center;
         }
+
+        .about-container {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+            margin: 30px auto;
+            width: 80%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .about-container h2 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .about-container p {
+            line-height: 1.6;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -110,38 +131,49 @@
             <h2>Boas-vindas ao Portal Estudantil do Nauan</h2>
             <p>Este site oferece uma variedade de recursos para ajudá-lo em suas aulas de robótica.</p>
         </section>
+
+        <!-- Nova Seção 'Sobre' -->
+        <section id="sobre" class="about">
+            <div class="about-container">
+                <h2>Sobre Nós</h2>
+                <p>
+                    O Portal Estudantil do Nauan foi criado com o objetivo de oferecer recursos educativos e informações valiosas para estudantes que desejam aprender mais sobre robótica e tecnologia. Acreditamos que o conhecimento é a chave para abrir portas e criar um futuro brilhante.
+                </p>
+                <p>
+                    Nosso site combina aprendizado prático com teoria para capacitar os estudantes e ajudá-los a alcançar seus objetivos acadêmicos e profissionais. Junte-se a nós nesta jornada de conhecimento!
+                </p>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Portal Estudantil - Todos os direitos reservados</p>
-    <div class="frases-container">
-        <!-- Quadrados para frases -->
-        <div class="frase">
-            <p id="frase1">Frase 1 carregando...</p>
+    <footer>
+        <p>&copy; 2025 Portal Estudantil - Todos os direitos reservados</p>
+        <div class="frases-container">
+            <div class="frase">
+                <p id="frase1"></p>
+            </div>
+            <div class="frase">
+                <p id="frase2"></p>
+            </div>
+            <div class="frase">
+                <p id="frase3"></p>
+            </div>
         </div>
-        <div class="frase">
-            <p id="frase2">Frase 2 carregando...</p>
-        </div>
-        <div class="frase">
-            <p id="frase3">Frase 3 carregando...</p>
-        </div>
-    </div>
-    <script>
-        // Array de frases inspiradoras
-        const frases = [
-            "O sucesso é a soma de pequenos esforços repetidos dia após dia. - Robert Collier",
-            "A educação é o passaporte para o futuro, pois o amanhã pertence àqueles que se preparam hoje. - Malcolm X",
-            "A única maneira de fazer um ótimo trabalho é amar o que você faz. - Steve Jobs",
-            "Sonhe grande, comece pequeno, mas, acima de tudo, comece. - Simon Sinek"
-        ];
+        <script>
+            const frases = [
+                "O sucesso é a soma de pequenos esforços repetidos dia após dia. - Robert Collier",
+                "A educação é o passaporte para o futuro, pois o amanhã pertence àqueles que se preparam hoje. - Malcolm X",
+                "A única maneira de fazer um ótimo trabalho é amar o que você faz. - Steve Jobs",
+                "Sonhe grande, comece pequeno, mas, acima de tudo, comece. - Simon Sinek"
+            ];
 
-        // Preenche os quadrados com frases aleatórias
-        document.getElementById("frase1").textContent = frases[Math.floor(Math.random() * frases.length)];
-        document.getElementById("frase2").textContent = frases[Math.floor(Math.random() * frases.length)];
-        document.getElementById("frase3").textContent = frases[Math.floor(Math.random() * frases.length)];
-    </script>
-</footer>
+            // Preenche os quadrados com frases aleatórias
+            document.getElementById("frase1").textContent = frases[Math.floor(Math.random() * frases.length)];
+            document.getElementById("frase2").textContent = frases[Math.floor(Math.random() * frases.length)];
+            document.getElementById("frase3").textContent = frases[Math.floor(Math.random() * frases.length)];
+        </script>
+    </footer>
 
 </body>
 </html>
