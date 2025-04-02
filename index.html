@@ -23,13 +23,12 @@
         nav {
             background-color: #333;
             overflow: hidden;
+            text-align: center;
         }
 
         nav a {
-            float: left;
-            display: block;
+            display: inline-block;
             color: white;
-            text-align: center;
             padding: 14px 20px;
             text-decoration: none;
         }
@@ -83,40 +82,21 @@
         <h1>Bem-vindo ao Portal Estudantil do Nauan</h1>
         <p>Seu ponto de partida para aprendizado e recursos!</p>
     </header>
-    <section id="sobre" class="about">
-    <div class="about-container">
-        <h2>Sobre Nós</h2>
-        <p>
-            O Portal Estudantil do Nauan foi criado para oferecer recursos educativos e informações valiosas para estudantes que desejam aprender mais sobre robótica e tecnologia. Nosso objetivo é inspirar e capacitar estudantes a alcançar seu potencial máximo!
-        </p>
-        <p>
-            Este projeto foi realizado sob a supervisão do professor Cleiton Gonçalves, cuja orientação e apoio inestimáveis tornaram tudo isso possível. Sua dedicação nos motivou a buscar sempre o melhor.
-        </p>
-        <h3>Mensagem Motivadora:</h3>
-        <p>
-            "Explore, aprenda e compartilhe conhecimento! Convido você a visitar também os sites dos meus colegas, cheios de conteúdos incríveis para apoiar sua jornada."
-        </p>
-        <a href="https://site-colega-1.com" target="_blank" rel="noopener" class="button">Visitar o site do Colega 1</a>
-        <a href="https://site-colega-2.com" target="_blank" rel="noopener" class="button">Visitar o site do Colega 2</a>
-    </div>
-</section>
-
 
     <nav>
         <a href="#home">Início</a>
         <a href="#recursos">Recursos</a>
-        <a href="#sobre">Sobre</a>
+        <a href="sobre.html">Sobre</a>
         <a href="https://www.instagram.com/nauanloures/" target="_blank" rel="noopener">Contato</a>
     </nav>
 
-  <div class="content">
-    <!-- Seção 'Início' -->
-    <section id="home" class="welcome">
-        <h2>Boas-vindas ao Portal Estudantil do Nauan</h2>
-        <p>Este site oferece uma variedade de recursos para ajudá-lo em suas aulas de robótica.</p>
-    </section>
+    <div class="content">
+        <section id="home" class="welcome">
+            <h2>Boas-vindas ao Portal Estudantil do Nauan</h2>
+            <p>Este site oferece uma variedade de recursos para ajudá-lo em suas aulas de robótica.</p>
+        </section>
+    </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Portal Estudantil - Todos os direitos reservados</p>
         <div class="frases-container">
@@ -131,7 +111,6 @@
             </div>
         </div>
         <script>
-            // Array com novas frases inspiradoras
             const frases = [
                 "A educação é a arma mais poderosa que você pode usar para mudar o mundo. - Nelson Mandela",
                 "O único lugar onde o sucesso vem antes do trabalho é no dicionário. - Vidal Sassoon",
@@ -142,16 +121,13 @@
                 "O futuro pertence àqueles que acreditam na beleza de seus sonhos. - Eleanor Roosevelt"
             ];
 
-            // Função para selecionar frases aleatórias sem repetições
             function getFrasesNaoRepetidas(array, qtd) {
                 const embaralhado = array.sort(() => 0.5 - Math.random());
                 return embaralhado.slice(0, qtd);
             }
 
-            // Obtém 3 frases não repetidas
             const frasesSelecionadas = getFrasesNaoRepetidas(frases, 3);
 
-            // Preenche os quadrados com as frases selecionadas
             document.getElementById("frase1").textContent = frasesSelecionadas[0];
             document.getElementById("frase2").textContent = frasesSelecionadas[1];
             document.getElementById("frase3").textContent = frasesSelecionadas[2];
