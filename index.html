@@ -48,20 +48,6 @@
             margin-bottom: 30px;
         }
 
-        .resources {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .resource {
-            background-color: #ffffff;
-            padding: 15px;
-            margin: 10px;
-            width: 250px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
         footer {
             background-color: #333;
             color: white;
@@ -89,27 +75,6 @@
             justify-content: center;
             text-align: center;
         }
-
-        .about-container {
-            background-color: #f9f9f9;
-            color: #333;
-            padding: 20px;
-            margin: 30px auto;
-            width: 80%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .about-container h2 {
-            color: #4CAF50;
-            margin-bottom: 10px;
-        }
-
-        .about-container p {
-            line-height: 1.6;
-            font-size: 18px;
-        }
     </style>
 </head>
 <body>
@@ -131,19 +96,6 @@
             <h2>Boas-vindas ao Portal Estudantil do Nauan</h2>
             <p>Este site oferece uma variedade de recursos para ajudá-lo em suas aulas de robótica.</p>
         </section>
-
-        <!-- Nova Seção 'Sobre' -->
-        <section id="sobre" class="about">
-            <div class="about-container">
-                <h2>Sobre Nós</h2>
-                <p>
-                    O Portal Estudantil do Nauan foi criado com o objetivo de oferecer recursos educativos e informações valiosas para estudantes que desejam aprender mais sobre robótica e tecnologia. Acreditamos que o conhecimento é a chave para abrir portas e criar um futuro brilhante.
-                </p>
-                <p>
-                    Nosso site combina aprendizado prático com teoria para capacitar os estudantes e ajudá-los a alcançar seus objetivos acadêmicos e profissionais. Junte-se a nós nesta jornada de conhecimento!
-                </p>
-            </div>
-        </section>
     </div>
 
     <!-- Footer -->
@@ -161,17 +113,30 @@
             </div>
         </div>
         <script>
+            // Array com novas frases inspiradoras
             const frases = [
-                "O sucesso é a soma de pequenos esforços repetidos dia após dia. - Robert Collier",
-                "A educação é o passaporte para o futuro, pois o amanhã pertence àqueles que se preparam hoje. - Malcolm X",
-                "A única maneira de fazer um ótimo trabalho é amar o que você faz. - Steve Jobs",
-                "Sonhe grande, comece pequeno, mas, acima de tudo, comece. - Simon Sinek"
+                "A educação é a arma mais poderosa que você pode usar para mudar o mundo. - Nelson Mandela",
+                "O único lugar onde o sucesso vem antes do trabalho é no dicionário. - Vidal Sassoon",
+                "Seja a mudança que você deseja ver no mundo. - Mahatma Gandhi",
+                "Não deixe o medo de errar impedir que você jogue. - Babe Ruth",
+                "Acredite em si mesmo e todo o resto se tornará possível. - Desconhecido",
+                "É na crise que nascem as grandes ideias e descobertas. - Albert Einstein",
+                "O futuro pertence àqueles que acreditam na beleza de seus sonhos. - Eleanor Roosevelt"
             ];
 
-            // Preenche os quadrados com frases aleatórias
-            document.getElementById("frase1").textContent = frases[Math.floor(Math.random() * frases.length)];
-            document.getElementById("frase2").textContent = frases[Math.floor(Math.random() * frases.length)];
-            document.getElementById("frase3").textContent = frases[Math.floor(Math.random() * frases.length)];
+            // Função para selecionar frases aleatórias sem repetições
+            function getFrasesNaoRepetidas(array, qtd) {
+                const embaralhado = array.sort(() => 0.5 - Math.random());
+                return embaralhado.slice(0, qtd);
+            }
+
+            // Obtém 3 frases não repetidas
+            const frasesSelecionadas = getFrasesNaoRepetidas(frases, 3);
+
+            // Preenche os quadrados com as frases selecionadas
+            document.getElementById("frase1").textContent = frasesSelecionadas[0];
+            document.getElementById("frase2").textContent = frasesSelecionadas[1];
+            document.getElementById("frase3").textContent = frasesSelecionadas[2];
         </script>
     </footer>
 
