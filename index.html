@@ -66,10 +66,7 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 20px;
         }
     </style>
 </head>
@@ -80,54 +77,34 @@
         <p>Seu ponto de partida para aprendizado e recursos!</p>
     </header>
 
-   <nav>
-   <section id="home">
-    <!-- Conteúdo inicial da página -->
-</section>
-    <a href="#recursos">Recursos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="https://www.instagram.com/nauanloures/" target="_blank" rel="noopener">Contato</a>
-</nav>
+    <nav>
+        <a href="#home">Início</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="https://www.instagram.com/nauanloures/" target="_blank" rel="noopener">Contato</a>
+    </nav>
 
     <div class="content">
-        <section class="welcome">
+        <section id="home" class="welcome">
             <h2>Boas-vindas ao Portal Estudantil do Nauan</h2>
             <p>Este site oferece uma variedade de recursos para ajudá-lo em suas aulas de robótica.</p>
         </section>
-</section>
-<!-- Seu conteúdo principal, como seções e navegação -->
-<div class="content">
-    <!-- Conteúdo da página -->
-</div>
+    </div>
 
-</body>
-</html>
-
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Portal Estudantil - Todos os direitos reservados</p>
+        <p id="inspiracao"></p>
+        <script>
+            const frases = [
+                "O sucesso é a soma de pequenos esforços repetidos dia após dia. - Robert Collier",
+                "A educação é o passaporte para o futuro, pois o amanhã pertence àqueles que se preparam hoje. - Malcolm X",
+                "A única maneira de fazer um ótimo trabalho é amar o que você faz. - Steve Jobs",
+                "Sonhe grande, comece pequeno, mas, acima de tudo, comece. - Simon Sinek"
+            ];
+            document.getElementById("inspiracao").textContent = frases[Math.floor(Math.random() * frases.length)];
+        </script>
     </footer>
-<!-- Seu conteúdo principal, como seções e navegação -->
-<div class="content">
-    <!-- Conteúdo da página -->
-</div>
-
-<!-- Footer -->
-<footer>
-    <p id="inspiracao"></p>
-    <script>
-        const frases = [
-            "O sucesso é a soma de pequenos esforços repetidos dia após dia. - Robert Collier",
-            "A educação é o passaporte para o futuro, pois o amanhã pertence àqueles que se preparam hoje. - Malcolm X",
-            "A única maneira de fazer um ótimo trabalho é amar o que você faz. - Steve Jobs",
-            "Sonhe grande, comece pequeno, mas, acima de tudo, comece. - Simon Sinek"
-        ];
-        document.getElementById("inspiracao").textContent = frases[Math.floor(Math.random() * frases.length)];
-    </script>
-</footer>
-
-</body>
-</html>
-
 
 </body>
 </html>
