@@ -3,62 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navegação de Páginas</title>
-    <style>
-        /* Estilos para os botões de navegação */
-        .nav-button {
-            background-color: #2E7D32;  /* Verde escuro */
-            border: none;
-            padding: 15px 25px;
-            margin: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.5em;
-            transition: background-color 0.3s ease;
-        }
-        
-        .nav-button:hover {
-            background-color: #276028;
-        }
-        
-        /* Estilo para as setas em amarelo */
-        .nav-button .arrow {
-            color: yellow;
-        }
-        
-        /* Container centralizado para os botões */
-        .button-container {
-            text-align: center;
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-    <div class="button-container">
-        <!-- Botão para voltar à página anterior -->
-        <button class="nav-button" onclick="goBack()">
-            <span class="arrow">&#x2190;</span> Voltar
-        </button>
-        <!-- Botão para avançar à página seguinte -->
-        <button class="nav-button" onclick="goForward()">
-            Avançar <span class="arrow">&#x2192;</span>
-        </button>
-    </div>
-    <script>
-        // Função para voltar à página anterior usando o histórico do navegador
-        function goBack() {
-            history.back();
-        }
-        // Função para avançar à página seguinte usando o histórico do navegador
-        function goForward() {
-            history.forward();
-        }
-    </script>
-</body>
-</html>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recursos - Portal Estudantil</title>
     <style>
         :root {
