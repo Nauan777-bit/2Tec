@@ -10,6 +10,8 @@
             --text-light: #333;
             --bg-dark: #181818;
             --text-dark: #ffffff;
+            --verde-claro: #4CAF50;
+            --verde-escuro: #2E7D32;
         }
 
         body {
@@ -27,7 +29,7 @@
         }
 
         header {
-            background-color: #4CAF50;
+            background-color: var(--verde-claro);
             color: white;
             padding: 20px;
             text-align: center;
@@ -76,7 +78,7 @@
         }
 
         .frase {
-            background-color: #4CAF50;
+            background-color: var(--verde-claro);
             color: white;
             padding: 20px;
             width: 250px;
@@ -93,17 +95,31 @@
             top: 10px;
             right: 10px;
             padding: 10px;
-            background: #4CAF50;
+            background: var(--verde-claro);
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 5px;
+            font-size: 1.2rem;
+        }
+
+        /* Ajustes para o modo escuro: alterando os verdes para um tom mais escuro */
+        body.dark-mode header {
+            background-color: var(--verde-escuro);
+        }
+
+        body.dark-mode .frase {
+            background-color: var(--verde-escuro);
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            background: var(--verde-escuro);
         }
     </style>
 </head>
 <body>
 
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Alternar Modo Escuro</button>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
 
     <header>
         <h1>Bem-vindo ao Portal Estudantil do Nauan</h1>
