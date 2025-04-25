@@ -90,10 +90,25 @@
             cursor: pointer;
             border-radius: 5px;
             font-size: 1.2rem;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
         
         body.dark-mode .dark-mode-toggle {
             background: #2E7D32;
+        }
+        
+        /* Animação de rotação para o botão ao alternar os modos */
+        @keyframes rotate-on-toggle {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .dark-mode-toggle.animate {
+            animation: rotate-on-toggle 0.4s ease-in-out;
         }
     </style>
 </head>
@@ -143,7 +158,12 @@
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
             localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
+            const toggleBtn = document.querySelector('.dark-mode-toggle');
+            toggleBtn.classList.add("animate");
             updateIcon();
+            setTimeout(() => {
+                toggleBtn.classList.remove("animate");
+            }, 400);
         }
 
         window.onload = function() {
