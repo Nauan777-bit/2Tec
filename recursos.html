@@ -1,204 +1,219 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recursos - Portal Estudantil</title>
-  <style>
-    :root {
-      --bg-light: #f4f4f9;
-      --text-light: #333;
-      --bg-dark: #181818;
-      --text-dark: #ffffff;
-      --verde-claro: #4CAF50;
-      --verde-escuro: #2E7D32;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      padding: 20px;
-      background-color: var(--bg-light);
-      color: var(--text-light);
-      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-    body.dark-mode {
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: var(--text-light);
-      transition: color 0.3s ease-in-out;
-    }
-    body.dark-mode h1 {
-      color: var(--text-dark);
-    }
-    .section {
-      margin: 10px 0;
-    }
-    /* Accordion styles */
-    .accordion {
-      background-color: var(--verde-claro);
-      color: white;
-      cursor: pointer;
-      padding: 10px;
-      width: 100%;
-      text-align: left;
-      border: none;
-      outline: none;
-      transition: background-color 0.3s ease;
-      border-radius: 5px;
-      font-size: 1.1em;
-      margin-bottom: 5px;
-    }
-    body.dark-mode .accordion {
-      background-color: var(--verde-escuro);
-    }
-    .accordion.active,
-    .accordion:hover {
-      background-color: var(--verde-escuro);
-    }
-    .panel {
-      background-color: white;
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out;
-      border: 1px solid #ccc;
-      border-top: none;
-      border-radius: 0 0 5px 5px;
-      margin-bottom: 10px;
-      padding: 0 10px;
-    }
-    body.dark-mode .panel {
-      background-color: #333;
-      border: 1px solid #555;
-      color: var(--text-dark);
-    }
-    .panel p {
-      margin: 10px 0;
-    }
-    .dark-mode-toggle {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      padding: 10px;
-      background: var(--verde-claro);
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 1.2rem;
-      transition: background-color 0.3s ease;
-    }
-    body.dark-mode .dark-mode-toggle {
-      background: var(--verde-escuro);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos - Portal Estudantil</title>
+    <style>
+        :root {
+            --bg-light: #f4f4f9;
+            --text-light: #333;
+            --bg-dark: #181818;
+            --text-dark: #ffffff;
+            --verde-claro: #4CAF50;
+            --verde-escuro: #2E7D32;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            transition: color 0.3s ease-in-out;
+        }
+        
+        body.dark-mode h1 {
+            color: var(--text-dark);
+        }
+        
+        .section {
+            margin: 10px 0;
+        }
+        
+        /* Accordion styles */
+        .accordion {
+            background-color: var(--verde-claro);
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        body.dark-mode .accordion {
+            background-color: var(--verde-escuro);
+        }
+        
+        .accordion.active,
+        .accordion:hover {
+            background-color: var(--verde-escuro);
+        }
+        
+        .panel {
+            background-color: white;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        
+        body.dark-mode .panel {
+            background-color: #333;
+            border: 1px solid #555;
+            color: var(--text-dark);
+        }
+        
+        .panel p {
+            margin: 10px 0;
+        }
+        
+        .dark-mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background: var(--verde-claro);
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        body.dark-mode .dark-mode-toggle {
+            background: var(--verde-escuro);
+        }
+    </style>
 </head>
 <body>
-  <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
-  <h1>Recursos</h1>
-  
-  <div class="section">
-    <button class="accordion">Sistemas Operacionais (S.O.)</button>
-    <div class="panel">
-      <p>Conteúdo sobre conceitos fundamentais, gerenciamento de processos e memória, e sistemas de arquivos.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Sistemas Operacionais -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    <h1>Recursos</h1>
+    
+    <div class="section">
+        <button class="accordion">Sistemas Operacionais (S.O.)</button>
+        <div class="panel">
+            <p>Conteúdo sobre conceitos fundamentais, gerenciamento de processos e memória, e sistemas de arquivos.</p>
+            <!-- Adicione aqui os conteúdos adicionais sobre Sistemas Operacionais -->
+        </div>
     </div>
-  </div>
-
-  <div class="section">
-    <button class="accordion">Programação Orientada a Objetos com Java (P.O.O./JAVA)</button>
-    <div class="panel">
-      <p>Conteúdo sobre os princípios da POO, sintaxe Java, boas práticas e design patterns.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre P.O.O./JAVA -->
+    
+    <div class="section">
+        <button class="accordion">Programação Orientada a Objetos com Java (P.O.O./JAVA)</button>
+        <div class="panel">
+            <p>Conteúdo sobre os princípios da POO, sintaxe Java, boas práticas e design patterns.</p>
+            <!-- Adicione aqui os conteúdos adicionais sobre P.O.O./JAVA -->
+        </div>
     </div>
-  </div>
-
-  <div class="section">
-    <button class="accordion">Arquitetura e Modelagem de Computadores (A.M.C.)</button>
-    <div class="panel">
-      <p>Conteúdo sobre a estrutura de hardware, lógica digital e funcionamento da CPU.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre A.M.C. -->
+    
+    <div class="section">
+        <button class="accordion">Arquitetura e Modelagem de Computadores (A.M.C.)</button>
+        <div class="panel">
+            <p>Conteúdo sobre a estrutura de hardware, lógica digital e funcionamento da CPU.</p>
+            <!-- Adicione aqui os conteúdos adicionais sobre A.M.C. -->
+        </div>
     </div>
-  </div>
-
-  <div class="section">
-    <button class="accordion">Gestão de Tempo (G.T.)</button>
-    <div class="panel">
-      <p>Conteúdo sobre técnicas de organização, produtividade, planejamento e otimização do tempo.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Gestão de Tempo -->
+    
+    <div class="section">
+        <button class="accordion">Gestão de Tempo (G.T.)</button>
+        <div class="panel">
+            <p>Conteúdo sobre técnicas de organização, produtividade, planejamento e otimização do tempo.</p>
+            <!-- Adicione aqui os conteúdos adicionais sobre Gestão de Tempo -->
+        </div>
     </div>
-  </div>
-
-  <div class="section">
-    <button class="accordion">Noção de Robótica (N.R.)</button>
-    <div class="panel">
-      <p>Conteúdo sobre fundamentos da robótica, sensores e atuadores e programação de sistemas autônomos.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Noção de Robótica -->
+    
+    <div class="section">
+        <button class="accordion">Noção de Robótica (N.R.)</button>
+        <div class="panel">
+            <p>Conteúdo sobre fundamentos da robótica, sensores e atuadores e programação de sistemas autônomos.</p>
+            <!-- Adicione aqui os conteúdos adicionais sobre Noção de Robótica -->
+        </div>
     </div>
-  </div>
-
-  <div class="section">
-    <button class="accordion">HTML/CSS</button>
-    <div class="panel">
-      <p>Conteúdo sobre estrutura de páginas web, estilização, acessibilidade e responsividade.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre HTML/CSS -->
+    
+    <div class="section">
+        <button class="accordion">HTML/CSS</button>
+        <div class="panel">
+            <p>Conteúdo sobre estrutura de páginas web, estilização, acessibilidade e responsividade.</p>
+            <!-- Adicione aqui os conteúdos adicionais sobre HTML/CSS -->
+        </div>
     </div>
-  </div>
-
-  <div class="section">
-    <button class="accordion">Programação Web (PROG. WEB)</button>
-    <div class="panel">
-      <p>Conteúdo sobre tecnologias backend e frontend, frameworks populares e desenvolvimento de APIs.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Programação Web -->
+    
+    <div class="section">
+        <button class="accordion">Programação Web (PROG. WEB)</button>
+        <div class="panel">
+            <p>Conteúdo sobre tecnologias backend e frontend, frameworks populares e desenvolvimento de APIs.</p>
+            <!-- Adicione aqui os conteúdos adicionais sobre Programação Web -->
+        </div>
     </div>
-  </div>
-
-  <div class="section">
-    <button class="accordion">Lógica de Programação (LOG. PR.)</button>
-    <div class="panel">
-      <p>Conteúdo sobre estruturas de dados, algoritmos básicos e raciocínio lógico para programação.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Lógica de Programação -->
+    
+    <div class="section">
+        <button class="accordion">Lógica de Programação (LOG. PR.)</button>
+        <div class="panel">
+            <p>Conteúdo sobre estruturas de dados, algoritmos básicos e raciocínio lógico para programação.</p>
+            <!-- Adicione aqui os conteúdos adicionais sobre Lógica de Programação -->
+        </div>
     </div>
-  </div>
-
-  <script>
-    // Accordion functionality usando max-height
-    const accordions = document.querySelectorAll(".accordion");
-    accordions.forEach((accordion) => {
-      accordion.addEventListener("click", function() {
-        this.classList.toggle("active");
-        const panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
+    
+    <script>
+        // Accordion functionality using max-height
+        const accordions = document.querySelectorAll(".accordion");
+        accordions.forEach((accordion) => {
+            accordion.addEventListener("click", function() {
+                this.classList.toggle("active");
+                const panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        });
+        
+        // Functions for toggling dark mode
+        function updateIcon() {
+            const toggleBtn = document.querySelector('.dark-mode-toggle');
+            if (document.body.classList.contains("dark-mode")) {
+                toggleBtn.textContent = "☀️";
+            } else {
+                toggleBtn.textContent = "🌙";
+            }
         }
-      });
-    });
-
-    // Funções para alternância do modo escuro/claro
-    function updateIcon() {
-      const toggleBtn = document.querySelector('.dark-mode-toggle');
-      if (document.body.classList.contains("dark-mode")) {
-        toggleBtn.textContent = "☀️";
-      } else {
-        toggleBtn.textContent = "🌙";
-      }
-    }
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-      localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
-      updateIcon();
-    }
-    window.onload = function() {
-      if (localStorage.getItem("darkMode") === "enabled") {
-        document.body.classList.add("dark-mode");
-      }
-      updateIcon();
-    };
-  </script>
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
+            updateIcon();
+        }
+        
+        window.onload = function() {
+            if (localStorage.getItem("darkMode") === "enabled") {
+                document.body.classList.add("dark-mode");
+            }
+            updateIcon();
+        };
+    </script>
 </body>
 </html>
