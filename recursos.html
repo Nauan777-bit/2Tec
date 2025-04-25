@@ -19,7 +19,7 @@
       padding: 20px;
       background-color: var(--bg-light);
       color: var(--text-light);
-      transition: 0.3s ease-in-out;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     }
     body.dark-mode {
       background-color: var(--bg-dark);
@@ -29,7 +29,7 @@
       text-align: center;
       margin-bottom: 20px;
       color: var(--text-light);
-      transition: 0.3s ease-in-out;
+      transition: color 0.3s ease-in-out;
     }
     body.dark-mode h1 {
       color: var(--text-dark);
@@ -37,7 +37,7 @@
     .section {
       margin: 10px 0;
     }
-    /* Estilos do Accordion */
+    /* Accordion styles */
     .accordion {
       background-color: var(--verde-claro);
       color: white;
@@ -47,7 +47,7 @@
       text-align: left;
       border: none;
       outline: none;
-      transition: 0.3s;
+      transition: background-color 0.3s ease;
       border-radius: 5px;
       font-size: 1.1em;
       margin-bottom: 5px;
@@ -55,23 +55,25 @@
     body.dark-mode .accordion {
       background-color: var(--verde-escuro);
     }
-    .accordion.active, .accordion:hover {
+    .accordion.active,
+    .accordion:hover {
       background-color: var(--verde-escuro);
     }
     .panel {
-      padding: 0 10px;
-      display: none;
       background-color: white;
       overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out;
       border: 1px solid #ccc;
       border-top: none;
       border-radius: 0 0 5px 5px;
       margin-bottom: 10px;
+      padding: 0 10px;
     }
     body.dark-mode .panel {
       background-color: #333;
-      color: var(--text-dark);
       border: 1px solid #555;
+      color: var(--text-dark);
     }
     .panel p {
       margin: 10px 0;
@@ -87,7 +89,7 @@
       cursor: pointer;
       border-radius: 5px;
       font-size: 1.2rem;
-      transition: background 0.3s ease-in-out;
+      transition: background-color 0.3s ease;
     }
     body.dark-mode .dark-mode-toggle {
       background: var(--verde-escuro);
@@ -102,82 +104,82 @@
     <button class="accordion">Sistemas Operacionais (S.O.)</button>
     <div class="panel">
       <p>Conceitos fundamentais, gerenciamento de processos e memória, sistemas de arquivos.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Sistemas Operacionais -->
+      <!-- Adicione aqui os conteúdos adicionais que está estudando sobre Sistemas Operacionais -->
     </div>
   </div>
-  
+
   <div class="section">
     <button class="accordion">Programação Orientada a Objetos com Java (P.O.O./JAVA)</button>
     <div class="panel">
       <p>Princípios da POO, sintaxe Java, boas práticas e design patterns.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre P.O.O./JAVA -->
+      <!-- Adicione aqui os conteúdos adicionais que está estudando sobre P.O.O./JAVA -->
     </div>
   </div>
-  
+
   <div class="section">
     <button class="accordion">Arquitetura e Modelagem de Computadores (A.M.C.)</button>
     <div class="panel">
       <p>Estrutura de hardware, lógica digital, funcionamento da CPU.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre A.M.C. -->
+      <!-- Adicione aqui os conteúdos adicionais que está estudando sobre A.M.C. -->
     </div>
   </div>
-  
+
   <div class="section">
     <button class="accordion">Gestão de Tempo (G.T.)</button>
     <div class="panel">
       <p>Técnicas de organização, produtividade, planejamento e otimização do tempo.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Gestão de Tempo -->
+      <!-- Adicione aqui os conteúdos adicionais que está estudando sobre Gestão de Tempo -->
     </div>
   </div>
-  
+
   <div class="section">
     <button class="accordion">Noção de Robótica (N.R.)</button>
     <div class="panel">
       <p>Fundamentos da robótica, sensores e atuadores, programação de sistemas autônomos.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Noção de Robótica -->
+      <!-- Adicione aqui os conteúdos adicionais que está estudando sobre Noção de Robótica -->
     </div>
   </div>
-  
+
   <div class="section">
     <button class="accordion">HTML/CSS</button>
     <div class="panel">
       <p>Estrutura de páginas web, estilização, boas práticas de acessibilidade e responsividade.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre HTML/CSS -->
+      <!-- Adicione aqui os conteúdos adicionais que está estudando sobre HTML/CSS -->
     </div>
   </div>
-  
+
   <div class="section">
     <button class="accordion">Programação Web (PROG. WEB)</button>
     <div class="panel">
       <p>Tecnologias backend e frontend, frameworks populares, desenvolvimento de APIs.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Programação Web -->
+      <!-- Adicione aqui os conteúdos adicionais que está estudando sobre Programação Web -->
     </div>
   </div>
-  
+
   <div class="section">
     <button class="accordion">Lógica de Programação (LOG. PR.)</button>
     <div class="panel">
       <p>Estruturas de dados, algoritmos básicos, raciocínio lógico para programação.</p>
-      <!-- Adicione aqui os conteúdos adicionais sobre Lógica de Programação -->
+      <!-- Adicione aqui os conteúdos adicionais que está estudando sobre Lógica de Programação -->
     </div>
   </div>
-  
+
   <script>
-    // Configura o comportamento dos botões do accordion
-    var acc = document.getElementsByClassName("accordion");
-    for (var i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
+    // Accordion functionality usando max-height
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach((accordion) => {
+      accordion.addEventListener("click", function() {
         this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
+        const panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
         } else {
-          panel.style.display = "block";
+          panel.style.maxHeight = panel.scrollHeight + "px";
         }
       });
-    }
-    
-    // Funções de alternância do modo escuro/claro
+    });
+
+    // Funções para alternância do modo escuro/claro
     function updateIcon() {
       const toggleBtn = document.querySelector('.dark-mode-toggle');
       if (document.body.classList.contains("dark-mode")) {
@@ -186,13 +188,11 @@
         toggleBtn.textContent = "🌙";
       }
     }
-    
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
       localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
       updateIcon();
     }
-    
     window.onload = function() {
       if (localStorage.getItem("darkMode") === "enabled") {
         document.body.classList.add("dark-mode");
