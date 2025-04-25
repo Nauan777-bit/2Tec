@@ -13,62 +13,62 @@
             --verde-claro: #4CAF50;
             --verde-escuro: #2E7D32;
         }
-
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-light);
             color: var(--text-light);
-            transition: 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
-
+        
         body.dark-mode {
             background-color: var(--bg-dark);
             color: var(--text-dark);
         }
-
+        
         header {
             background-color: var(--verde-claro);
             color: white;
             padding: 20px;
             text-align: center;
         }
-
+        
         nav {
             background-color: #333;
             overflow: hidden;
             text-align: center;
         }
-
+        
         nav a {
             display: inline-block;
             color: white;
             padding: 14px 20px;
             text-decoration: none;
         }
-
+        
         nav a:hover {
             background-color: #ddd;
             color: black;
         }
-
+        
         .content {
             padding: 20px;
         }
-
+        
         .welcome {
             text-align: center;
             margin-bottom: 30px;
         }
-
+        
         footer {
             background-color: #333;
             color: white;
             text-align: center;
             padding: 20px;
         }
-
+        
         .frases-container {
             display: flex;
             justify-content: center;
@@ -76,7 +76,7 @@
             flex-wrap: wrap;
             margin-top: 20px;
         }
-
+        
         .frase {
             background-color: var(--verde-claro);
             color: white;
@@ -89,7 +89,7 @@
             justify-content: center;
             text-align: center;
         }
-
+        
         .dark-mode-toggle {
             position: fixed;
             top: 10px;
@@ -102,44 +102,43 @@
             border-radius: 5px;
             font-size: 1.2rem;
         }
-
-        /* Ajustes para o modo escuro: alterando os verdes para um tom mais escuro */
+        
         body.dark-mode header {
             background-color: var(--verde-escuro);
         }
-
+        
         body.dark-mode .frase {
             background-color: var(--verde-escuro);
         }
-
+        
         body.dark-mode .dark-mode-toggle {
             background: var(--verde-escuro);
         }
     </style>
 </head>
 <body>
-
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
-
+    
     <header>
         <h1>Bem-vindo ao Portal Estudantil do Nauan</h1>
         <p>Seu ponto de partida para aprendizado e recursos!</p>
     </header>
-
+    
     <nav>
         <a href="#home">Início</a>
-        <a href="#recursos">Recursos</a>
+        <!-- Ao clicar em "Recursos", o usuário será direcionado para a página recursos.html -->
+        <a href="recursos.html">Recursos</a>
         <a href="sobre.html">Sobre</a>
         <a href="https://www.instagram.com/nauanloures/" target="_blank" rel="noopener">Contato</a>
     </nav>
-
+    
     <div class="content">
         <section id="home" class="welcome">
             <h2>Boas-vindas ao Portal Estudantil do Nauan</h2>
             <p>Este site oferece uma variedade de recursos para ajudá-lo em suas aulas de informática.</p>
         </section>
     </div>
-
+    
     <footer>
         <p>&copy; 2025 Portal Estudantil - Todos os direitos reservados</p>
         <div class="frases-container">
@@ -163,18 +162,18 @@
                 "É na crise que nascem as grandes ideias e descobertas. - Albert Einstein",
                 "O futuro pertence àqueles que acreditam na beleza de seus sonhos. - Eleanor Roosevelt"
             ];
-
+            
             function getFrasesNaoRepetidas(array, qtd) {
                 const embaralhado = array.sort(() => 0.5 - Math.random());
                 return embaralhado.slice(0, qtd);
             }
-
+            
             const frasesSelecionadas = getFrasesNaoRepetidas(frases, 3);
-
+            
             document.getElementById("frase1").textContent = frasesSelecionadas[0];
             document.getElementById("frase2").textContent = frasesSelecionadas[1];
             document.getElementById("frase3").textContent = frasesSelecionadas[2];
-
+            
             function updateIcon() {
                 const toggleBtn = document.querySelector('.dark-mode-toggle');
                 if (document.body.classList.contains("dark-mode")) {
@@ -183,13 +182,13 @@
                     toggleBtn.textContent = "🌙";
                 }
             }
-
+            
             function toggleDarkMode() {
                 document.body.classList.toggle("dark-mode");
                 localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
                 updateIcon();
             }
-
+            
             window.onload = function() {
                 if (localStorage.getItem("darkMode") === "enabled") {
                     document.body.classList.add("dark-mode");
@@ -198,6 +197,5 @@
             };
         </script>
     </footer>
-
 </body>
 </html>
