@@ -71,7 +71,7 @@
             background-color: white;
             overflow: hidden;
             max-height: 0;
-            transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
             border: 1px solid #ccc;
             border-top: none;
             border-radius: 0 0 5px 5px;
@@ -89,10 +89,9 @@
             margin: 10px 0;
         }
 
-        .dark-mode-toggle {
+        .dark-mode-toggle, .toggle-all {
             position: fixed;
             top: 10px;
-            right: 10px;
             padding: 10px;
             background: var(--verde-claro);
             color: white;
@@ -101,45 +100,33 @@
             border-radius: 5px;
             font-size: 1.2rem;
             transition: background-color 0.3s ease;
+            z-index: 1000;
         }
 
-        body.dark-mode .dark-mode-toggle {
-            background: var(--verde-escuro);
+        .dark-mode-toggle {
+            right: 10px;
         }
 
         .toggle-all {
-            display: block;
-            margin: 0 auto 20px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            left: 10px;
         }
 
-        .toggle-all:hover {
-            background-color: #1976D2;
-        }
-
+        body.dark-mode .dark-mode-toggle,
         body.dark-mode .toggle-all {
-            background-color: #1565C0;
+            background: var(--verde-escuro);
         }
     </style>
 </head>
 <body>
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
-    <h1>Recursos</h1>
     <button class="toggle-all" onclick="toggleAll()">Expandir Tudo</button>
+    <h1>Recursos</h1>
 
     <div class="section">
         <button class="accordion">Sistemas Operacionais (S.O.)</button>
         <div class="panel">
             <p>Conteúdo sobre conceitos fundamentais, gerenciamento de processos e memória, e sistemas de arquivos.</p>
-            <p>S.O. - 06/05/25 - 10 Expressões em inglês sobre a matéria S.O.:
-                File - Swap - Bootloader - Daemon - Log - Fork - Pipe - Root - CLI - GUI</p>
+            <p>S.O. - 06/05/25 - 10 Expressões em inglês sobre a matéria S.O.: File - Swap - Bootloader - Daemon - Log - Fork - Pipe - Root - CLI - GUI</p>
         </div>
     </div>
 
@@ -147,8 +134,7 @@
         <button class="accordion">Programação Orientada a Objetos com Java (P.O.O./JAVA)</button>
         <div class="panel">
             <p>Conteúdo sobre os princípios da POO, sintaxe Java, boas práticas e design patterns.</p>
-            <p>P.O.O. em JAVA - 06/05/25 - 10 Expressões em inglês sobre a matéria P.O.O. em JAVA:
-                Class - Object - Encapsulation - Inheritance - Polymorphism - Abstraction - Method Overloading - Method Overriding - Interface</p>
+            <p>P.O.O. em JAVA - 06/05/25 - 10 Expressões em inglês: Class - Object - Encapsulation - Inheritance - Polymorphism - Abstraction - Method Overloading - Method Overriding - Interface</p>
         </div>
     </div>
 
@@ -156,8 +142,7 @@
         <button class="accordion">Arquitetura e Modelagem de Computadores (A.M.C.)</button>
         <div class="panel">
             <p>Conteúdo sobre a estrutura de hardware, lógica digital e funcionamento da CPU.</p>
-            <p>A.M.C. - 06/05/25 - 10 Expressões em inglês sobre a matéria A.M.C.:
-                CPU - RAM - Cache - Bus - ROM - VM - Kernel - IRQ - Chip - HAL</p>
+            <p>A.M.C. - 06/05/25 - 10 Expressões em inglês: CPU - RAM - Cache - Bus - ROM - VM - Kernel - IRQ - Chip - HAL</p>
         </div>
     </div>
 
@@ -197,21 +182,25 @@
     </div>
 
     <script>
-        // Função individual de cada acordeão
         const accordions = document.querySelectorAll(".accordion");
+        const panels = document.querySelectorAll(".panel");
+
         accordions.forEach((accordion) => {
-            accordion.addEventListener("click", function() {
+            accordion.addEventListener("click", function () {
                 this.classList.toggle("active");
                 const panel = this.nextElementSibling;
                 if (panel.style.maxHeight) {
                     panel.style.maxHeight = null;
+                    panel.style.paddingTop = "0";
+                    panel.style.paddingBottom = "0";
                 } else {
                     panel.style.maxHeight = panel.scrollHeight + "px";
+                    panel.style.paddingTop = "10px";
+                    panel.style.paddingBottom = "10px";
                 }
             });
         });
 
-        // Modo escuro
         function updateIcon() {
             const toggleBtn = document.querySelector('.dark-mode-toggle');
             toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
@@ -223,14 +212,13 @@
             updateIcon();
         }
 
-        window.onload = function() {
+        window.onload = function () {
             if (localStorage.getItem("darkMode") === "enabled") {
                 document.body.classList.add("dark-mode");
             }
             updateIcon();
         };
 
-        // Expandir / Recolher tudo
         let allExpanded = false;
 
         function toggleAll() {
@@ -238,16 +226,18 @@
             allExpanded = !allExpanded;
             toggleBtn.textContent = allExpanded ? "Recolher Tudo" : "Expandir Tudo";
 
-            document.querySelectorAll(".accordion").forEach((accordion) => {
+            accordions.forEach((accordion) => {
                 const panel = accordion.nextElementSibling;
                 if (allExpanded) {
                     accordion.classList.add("active");
                     panel.style.maxHeight = panel.scrollHeight + "px";
-                    panel.style.padding = "10px";
+                    panel.style.paddingTop = "10px";
+                    panel.style.paddingBottom = "10px";
                 } else {
                     accordion.classList.remove("active");
                     panel.style.maxHeight = null;
-                    panel.style.padding = "0 10px";
+                    panel.style.paddingTop = "0";
+                    panel.style.paddingBottom = "0";
                 }
             });
         }
